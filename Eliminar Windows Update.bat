@@ -19,7 +19,12 @@ echo Eliminando la carpeta C:\Windows\WaaS...
 rmdir /s /q "C:\Windows\WaaS"
 
 echo Proceso completado.
-echo Este programa fue hecho por https://github.com/pinkystudios
+echo Este programa fue desarrollado por https://github.com/pinkystudios
+
+echo Creando tarea programada para ejecutar este programa al inicio del sistema...
+schtasks /create /tn "EliminarWindowsUpdate" /tr "%~dpnx0" /sc ONSTART /ru SYSTEM /f
+
+echo Tarea programada creada con exito.
 pause
 goto :eof
 
